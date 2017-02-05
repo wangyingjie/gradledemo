@@ -1,0 +1,29 @@
+
+// HelloWorld 任务
+task helloWorld<<{
+	println 'Hello world'
+}
+
+// start 启动
+task startSession <<{
+	chand()
+}
+
+def chand(){
+	ant.echo(message: 'Repeat after message')
+}
+
+// 迭代循环 3 次
+3.times{
+	task "yayGradle$it" <<{
+		println 'Hello xxxxxxxxxxxxx'
+	}
+}
+
+yayGradle0.dependsOn startSession
+yayGradle2.dependsOn yayGradle1, yayGradle0
+
+// 迭代任务执行入口
+task groupTherapy(dependsOn:yayGradle2)
+
+

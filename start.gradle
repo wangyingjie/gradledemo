@@ -1,0 +1,17 @@
+
+
+
+task startSession <<{
+	chand()
+}
+
+def chand(){
+	ant.echo(message: 'Repeat after message')
+}
+
+3.times{
+	task "yayGradle$it" <<{
+		println 'Hello xxxxxxxxxxxxx'
+	}
+}
+
